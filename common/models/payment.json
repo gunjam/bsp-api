@@ -1,9 +1,9 @@
 {
-  "name": "payment",
-  "plural": "payments",
+  "name": "Payment",
+  "plural": "Payments",
   "base": "PersistedModel",
   "strict": true,
-  "idInjection": true,
+  "idInjection": false,
   "options": {
     "validateUpsert": true
   },

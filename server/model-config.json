@@ -32,11 +32,11 @@
     "dataSource": "db",
     "public": false
   },
-  "payment": {
+  "Payment": {
     "dataSource": "transient",
     "public": false
   },
-  "schedule": {
+  "Schedule": {
     "dataSource": "db",
     "public": true
   }

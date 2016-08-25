@@ -1,6 +1,6 @@
 {
-  "name": "schedule",
-  "plural": "schedules",
+  "name": "Schedule",
+  "plural": "Schedules",
   "base": "PersistedModel",
   "strict": true,
   "idInjection": true,
@@ -10,27 +10,22 @@
   "properties": {
     "nationalInsuranceNumber": {
       "type": "string",
-      "required": true,
-      "length": 9,
-      "pattern": "/^(?!BG|GB|NK|KN|TN|NT|ZZ)[ABCEGHJ-PRSTW-Z]{2}\\d{6}[A-D]$/"
+      "required": true
     },
     "sortCode": {
       "type": "string",
-      "required": true,
-      "length": 8,
-      "pattern": "/\\d{2}-\\d{2}-\\d{2}/"
+      "required": true
     },
     "accountNumber": {
-      "type": "number",
-      "required": true,
-      "length": 8
+      "type": "string",
+      "required": true
     }
   },
   "validations": [],
   "relations": {
     "payments": {
       "type": "embedsMany",
-      "model": "payment",
+      "model": "Payment",
       "property": "payments",
       "options": {
         "validate": true,
