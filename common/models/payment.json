@@ -1,12 +1,9 @@
 {
   "name": "Payment",
   "plural": "Payments",
-  "base": "PersistedModel",
+  "base": "Model",
   "strict": true,
   "idInjection": false,
-  "options": {
-    "validateUpsert": true
-  },
   "properties": {
     "amount": {
       "type": "number",

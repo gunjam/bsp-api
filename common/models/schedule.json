@@ -19,19 +19,12 @@
     "accountNumber": {
       "type": "string",
       "required": true
-    }
+    },
+    "paymentSchedule": ["Payment"]
   },
   "validations": [],
   "relations": {
-    "payments": {
-      "type": "embedsMany",
-      "model": "Payment",
-      "property": "payments",
-      "options": {
-        "validate": true,
-        "forceId": false
-      }
-    }
+
   },
   "acls": [],
   "methods": {}
