@@ -36,7 +36,19 @@
     "dataSource": "transient",
     "public": false
   },
+  "Address": {
+    "dataSource": "transient",
+    "public": false
+  },
+  "BankAccount": {
+    "dataSource": "transient",
+    "public": false
+  },
   "Schedule": {
+    "dataSource": "db",
+    "public": true
+  },
+  "Claim": {
     "dataSource": "db",
     "public": true
   }

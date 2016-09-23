@@ -1,0 +1,41 @@
+{
+  "name": "Address",
+  "plural": "Addresses",
+  "base": "Model",
+  "strict": true,
+  "idInjection": false,
+  "properties": {
+    "line1": {
+      "type": "string",
+      "required": true
+    },
+    "line2": {
+      "type": "string",
+      "required": false
+    },
+    "line3": {
+      "type": "string",
+      "required": false
+    },
+    "line4": {
+      "type": "string",
+      "required": false
+    },
+    "line5": {
+      "type": "string",
+      "required": false
+    },
+    "postCode": {
+      "type": "string",
+      "required": true
+    },
+    "country": {
+      "type": "string",
+      "required": false
+    }
+  },
+  "validations": [],
+  "relations": {},
+  "acls": [],
+  "methods": {}
+}

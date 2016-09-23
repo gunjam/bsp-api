@@ -12,19 +12,24 @@
       "type": "string",
       "required": true
     },
-    "sortCode": {
-      "type": "string",
+    "account": {
+      "type": "BankAccount",
       "required": true
     },
-    "accountNumber": {
-      "type": "string",
+    "paymentSchedule": {
+      "type": [
+        "Payment"
+      ],
       "required": true
-    },
-    "paymentSchedule": ["Payment"]
+    }
   },
   "validations": [],
   "relations": {
-
+    "claim": {
+      "type": "belongsTo",
+      "model": "Claim",
+      "foreignKey": ""
+    }
   },
   "acls": [],
   "methods": {}

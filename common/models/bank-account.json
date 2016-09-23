@@ -1,0 +1,29 @@
+{
+  "name": "BankAccount",
+  "plural": "BankAccounts",
+  "base": "Model",
+  "strict": true,
+  "idInjection": false,
+  "properties": {
+    "nameOnAccount": {
+      "type": "string",
+      "required": true
+    },
+    "accountNumber": {
+      "type": "number",
+      "required": true
+    },
+    "sortCode": {
+      "type": "string",
+      "required": true
+    },
+    "rollNumber": {
+      "type": "string",
+      "required": false
+    }
+  },
+  "validations": [],
+  "relations": {},
+  "acls": [],
+  "methods": {}
+}

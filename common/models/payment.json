@@ -12,11 +12,6 @@
     "date": {
       "type": "date",
       "required": true
-    },
-    "paidOut": {
-      "type": "boolean",
-      "required": true,
-      "default": false
     }
   },
   "validations": [],

@@ -1,0 +1,65 @@
+{
+  "name": "Claim",
+  "plural": "Claims",
+  "base": "PersistedModel",
+  "idInjection": true,
+  "options": {
+    "validateUpsert": true
+  },
+  "properties": {
+    "dateOfClaim": {
+      "type": "date",
+      "required": true
+    },
+    "claimantName": {
+      "type": "string",
+      "required": true
+    },
+    "claimantNationalInsuranceNumber": {
+      "type": "string",
+      "required": true
+    },
+    "claimantDateOfBirth": {
+      "type": "date",
+      "required": true
+    },
+    "partnerName": {
+      "type": "string",
+      "required": true
+    },
+    "partnerNationalInsuranceNumber": {
+      "type": "string",
+      "required": true
+    },
+    "partnerDateOfDeath": {
+      "type": "date",
+      "required": true
+    },
+    "dependantChildren": {
+      "type": "boolean",
+      "required": true
+    },
+    "address": {
+      "type": "Address",
+      "required": true
+    },
+    "telephone": {
+      "type": "string",
+      "required": true
+    },
+    "bankAccount": {
+      "type": "BankAccount",
+      "required": true
+    }
+  },
+  "validations": [],
+  "relations": {
+    "schedule": {
+      "type": "hasOne",
+      "model": "Schedule",
+      "foreignKey": ""
+    }
+  },
+  "acls": [],
+  "methods": {}
+}
