@@ -8,11 +8,17 @@
     "validateUpsert": true
   },
   "properties": {
-    "status": {
+    "statuses": {
       "type": [
         "Status"
       ],
-      "required": true
+      "required": true,
+      "default": [
+        {
+          "name": "started",
+          "reason": "schedule created"
+        }
+      ]
     },
     "nationalInsuranceNumber": {
       "type": "string",

@@ -1,12 +1,16 @@
 {
   "name": "Status",
   "base": "Model",
-  "idInjection": true,
+  "idInjection": false,
   "options": {
     "validateUpsert": true
   },
   "properties": {
-    "status": {
+    "name": {
+      "type": "string",
+      "required": true
+    },
+    "reason": {
       "type": "string",
       "required": true
     },
@@ -20,7 +24,9 @@
     }
   },
   "validations": [],
-  "relations": {},
+  "relations": {
+
+  },
   "acls": [],
   "methods": {}
 }
