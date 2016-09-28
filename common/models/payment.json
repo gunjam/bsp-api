@@ -1,9 +1,9 @@
 {
   "name": "Payment",
   "plural": "Payments",
-  "base": "Model",
+  "base": "PersistedModel",
   "strict": true,
-  "idInjection": false,
+  "idInjection": true,
   "properties": {
     "amount": {
       "type": "number",
@@ -19,7 +19,18 @@
     }
   },
   "validations": [],
-  "relations": {},
+  "relations": {
+    "schedule": {
+      "type": "belongsTo",
+      "model": "Schedule",
+      "foreignKey": ""
+    },
+    "bankAccount": {
+      "type": "belongsTo",
+      "model": "BankAccount",
+      "foreignKey": ""
+    }
+  },
   "acls": [],
   "methods": {}
 }

@@ -33,16 +33,16 @@
     "public": false
   },
   "Payment": {
-    "dataSource": "transient",
-    "public": false
+    "dataSource": "db",
+    "public": true
   },
   "Address": {
     "dataSource": "transient",
     "public": false
   },
   "BankAccount": {
-    "dataSource": "transient",
-    "public": false
+    "dataSource": "db",
+    "public": true
   },
   "Schedule": {
     "dataSource": "db",

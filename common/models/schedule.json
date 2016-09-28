@@ -23,16 +23,6 @@
     "nationalInsuranceNumber": {
       "type": "string",
       "required": true
-    },
-    "account": {
-      "type": "BankAccount",
-      "required": true
-    },
-    "paymentSchedule": {
-      "type": [
-        "Payment"
-      ],
-      "required": true
     }
   },
   "validations": [],
@@ -40,6 +30,11 @@
     "claim": {
       "type": "belongsTo",
       "model": "Claim",
+      "foreignKey": ""
+    },
+    "paymentSchedule": {
+      "type": "hasMany",
+      "model": "Payment",
       "foreignKey": ""
     }
   },

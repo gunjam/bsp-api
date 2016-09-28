@@ -1,16 +1,16 @@
 {
   "name": "BankAccount",
   "plural": "BankAccounts",
-  "base": "Model",
+  "base": "PersistedModel",
   "strict": true,
-  "idInjection": false,
+  "idInjection": true,
   "properties": {
     "nameOnAccount": {
       "type": "string",
       "required": true
     },
     "accountNumber": {
-      "type": "number",
+      "type": "string",
       "required": true
     },
     "sortCode": {
@@ -23,7 +23,13 @@
     }
   },
   "validations": [],
-  "relations": {},
+  "relations": {
+    "payments": {
+      "type": "hasMany",
+      "model": "Payment",
+      "foreignKey": ""
+    }
+  },
   "acls": [],
   "methods": {}
 }
