@@ -21,6 +21,9 @@
     },
     "endDate": {
       "type": "date"
+    },
+    "effectiveDate": {
+      "type": "date"
     }
   },
   "validations": [],
