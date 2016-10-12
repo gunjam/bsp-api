@@ -20,6 +20,11 @@
     "rollNumber": {
       "type": "string",
       "required": false
+    },
+    "created": {
+      "type": "date",
+      "required": true,
+      "defaultFn": "now"
     }
   },
   "validations": [],
