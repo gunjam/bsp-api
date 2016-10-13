@@ -29,23 +29,51 @@ module.exports = function(Schedule) {
   Schedule.remoteMethod('saveFull', {
     accepts: [
       {arg: 'nationalInsuranceNumber', type: 'string'},
+      {arg: 'bankAccountId', type: 'string'},
       {arg: 'paymentSchedule', type: 'object'}
     ],
     description: 'Add and save a full schedule all in one go',
     returns: {type: 'Schedule', root: true}
   });
 
-  Schedule.saveFull = function(nationalInsuranceNumber, paymentSchedule, cb) {
+  Schedule.saveFull = function(nationalInsuranceNumber, bankAccountId, paymentSchedule, cb) {
     const Payment = Schedule.app.models.Payment;
 
-    Schedule.create({nationalInsuranceNumber}, function(err, schedule) {
+    Schedule.create({nationalInsuranceNumber}, (err, schedule) => {
       if (err) {
         return cb(err);
       }
       const scheduleId = schedule.id;
-      const linkedSchedule = paymentSchedule.map(i => Object.assign(i, {scheduleId}));
+      const linkedSchedule = paymentSchedule.map(i => Object.assign(i, {scheduleId, bankAccountId}));
 
       Payment.create(linkedSchedule, (err, payments) => cb(err, schedule));
+      schedule.bankAccounts.add(bankAccountId, (err, id) => cb(err, schedule));
+    });
+  };
+
+  Schedule.remoteMethod('updateBankAccount', {
+    accepts: [
+      {arg: 'scheduleId', type: 'string'},
+      {arg: 'bankAccountId', type: 'string'},
+      {arg: 'date', type: 'date'}
+    ],
+    description: 'Change bank account for all payments in a schedule beyond a given date',
+    returns: {type: 'Schedule', root: true}
+  });
+
+  Schedule.updateBankAccount = function(scheduleId, bankAccountId, date, cb) {
+    const Payment = Schedule.app.models.Payment;
+
+    Payment.updateAll({scheduleId, date: {"gt": date}}, {bankAccountId}, (err, info) => {
+      if (err) {
+        return cb(err);
+      }
+      Schedule.findById(scheduleId, (err, schedule) => {
+        if (err) {
+          return cb(err);
+        }
+        schedule.bankAccounts.add(bankAccountId, (err, id) => cb(err, schedule));
+      });
     });
   };
 };

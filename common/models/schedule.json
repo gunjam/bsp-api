@@ -36,6 +36,15 @@
       "type": "hasMany",
       "model": "Payment",
       "foreignKey": ""
+    },
+    "bankAccounts": {
+      "type": "referencesMany",
+      "model": "BankAccount",
+      "foreignKey": "",
+      "options": {
+        "validate": true,
+        "forceId": false
+      }
     }
   },
   "acls": [],
