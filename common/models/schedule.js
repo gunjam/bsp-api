@@ -47,8 +47,12 @@ module.exports = function(Schedule) {
       const scheduleId = schedule.id;
       const linkedSchedule = paymentSchedule.map(i => Object.assign(i, {scheduleId, bankAccountId}));
 
-      Payment.create(linkedSchedule, (err, payments) => cb(err, schedule));
-      schedule.bankAccounts.add(bankAccountId, (err, id) => cb(err, schedule));
+      Payment.create(linkedSchedule, (err, payments) => {
+        if (err) {
+          return cb(err);
+        }
+        schedule.bankAccounts.add(bankAccountId, (err, id) => cb(err, schedule));
+      });
     });
   };
 
