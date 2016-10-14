@@ -11,7 +11,8 @@ module.exports = function(Schedule) {
   Schedule.remoteMethod('addStatus', {
     accepts: [
       {arg: 'name', type: 'string'},
-      {arg: 'reason', type: 'string'}
+      {arg: 'reason', type: 'string'},
+      {arg: 'effectiveDate', type: 'date'}
     ],
     isStatic: false,
     description: 'Add a status to a schedule',
@@ -19,8 +20,8 @@ module.exports = function(Schedule) {
     http: {path: '/addStatus', verb: 'put', status: 200}
   });
 
-  Schedule.prototype.addStatus = function(name, reason, cb) {
-    const data = {name, reason};
+  Schedule.prototype.addStatus = function(name, reason, effectiveDate, cb) {
+    const data = {name, reason, effectiveDate};
     const statuses = this.statuses;
     statuses[statuses.length - 1].endDate = new Date();
     this.updateAttribute('statuses', [...statuses, data], (err, instance) => cb(err, data));
